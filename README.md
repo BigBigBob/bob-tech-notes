@@ -8,9 +8,12 @@
 
 ## 文档导航
 
-| 方向 | 专题 | 文档简介 |
-| --- | --- | --- |
-| DevOps | [Docker 基础知识](./docs/devops/docker/Docker基础知识.md) | 从核心概念、安装和常用命令，逐步讲到数据持久化、镜像构建、网络、Compose 与离线交付。 |
+完整分类和归档规则请查看 [docs 文档索引](./docs/README.md)。
+
+| 技术方向 | 技术专题 | 文档 | 内容简介 |
+| --- | --- | --- | --- |
+| 前端开发 | [JavaScript](./docs/frontend/javascript/README.md) | [JavaScript 基础知识](./docs/frontend/javascript/JavaScript基础知识.md) | 介绍动态类型、作用域与闭包、函数、`this`、原型与 `class`、模块系统、`package.json` 以及异步 JavaScript。 |
+| DevOps | [Docker](./docs/devops/docker/README.md) | [Docker 基础知识](./docs/devops/docker/Docker基础知识.md) | 从核心概念、安装和常用命令，逐步讲到数据持久化、镜像构建、网络、Compose 与离线交付。 |
 
 
 
@@ -21,12 +24,28 @@ bob-tech-notes/
 ├── README.md
 ├── LICENSE
 └── docs/
+    ├── README.md
+    ├── frontend/
+    │   └── javascript/
+    │       ├── README.md
+    │       └── JavaScript基础知识.md
     └── devops/
         └── docker/
+            ├── README.md
             └── Docker基础知识.md
 ```
 
-新增文档按照 `docs/<技术方向>/<专题>/` 的结构归档，并在上方的文档导航中补充入口。
+文档统一按照 `docs/<技术领域>/<技术或框架>/<文章>.md` 归档。新领域或技术专题在出现第一篇文章时再创建，避免保留大量空目录。
+
+
+
+## 文档约定
+
+1. 文件名应直接表达主题；需要区分内容类型时，可使用 `-入门`、`-实战`、`-原理`、`-排错` 等后缀。
+2. 不使用容易过时的 `最终版`、`最新版` 等名称；历史稿可以使用日期或 `-原始版本` 标识。
+3. 图片和附件存放在文章同级的 `assets/` 目录中，并通过相对路径引用。
+4. 一篇文章涉及多个方向时，只在核心主题目录保留一份正文，其他专题通过索引链接引用。
+5. 新增、移动或重命名文档后，需要同步更新根目录、`docs/` 和对应专题的 README 索引。
 
 
 
@@ -50,7 +69,7 @@ cd bob-tech-notes
 1. 说明修改的背景、适用版本和验证环境。
 2. 将命令、配置和输出放入对应语言的代码块。
 3. 不提交密码、API Key、私钥或其他敏感信息。
-4. 新增文档时同步更新本 README 的文档导航。
+4. 新增文档时同步更新相关 README 的文档导航。
 
 
 
