@@ -13,6 +13,7 @@
 | 技术方向 | 技术专题 | 文档 | 内容简介 |
 | --- | --- | --- | --- |
 | 前端开发 | [JavaScript](./docs/frontend/javascript/README.md) | [JavaScript 基础知识](./docs/frontend/javascript/JavaScript基础知识.md) | 介绍动态类型、作用域与闭包、函数、`this`、原型与 `class`、模块系统、`package.json` 以及异步 JavaScript。 |
+| 前端开发 | [TypeScript](./docs/frontend/typescript/README.md) | [TypeScript 基础知识](./docs/frontend/typescript/TypeScript基础知识.md) | 整理语言入门、类型推断与结构类型系统、JavaScript 模块、编译工具及 Handbook 常用类型。 |
 | DevOps | [Docker](./docs/devops/docker/README.md) | [Docker 基础知识](./docs/devops/docker/Docker基础知识.md) | 从核心概念、安装和常用命令，逐步讲到数据持久化、镜像构建、网络、Compose 与离线交付。 |
 
 
@@ -26,9 +27,12 @@ bob-tech-notes/
 └── docs/
     ├── README.md
     ├── frontend/
-    │   └── javascript/
+    │   ├── javascript/
+    │   │   ├── README.md
+    │   │   └── JavaScript基础知识.md
+    │   └── typescript/
     │       ├── README.md
-    │       └── JavaScript基础知识.md
+    │       └── TypeScript基础知识.md
     └── devops/
         └── docker/
             ├── README.md

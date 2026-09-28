@@ -9,6 +9,7 @@
 | 技术领域 | 技术专题 | 文章 |
 | --- | --- | --- |
 | 前端开发（`frontend`） | [JavaScript](./frontend/javascript/README.md) | [JavaScript 基础知识](./frontend/javascript/JavaScript基础知识.md) |
+| 前端开发（`frontend`） | [TypeScript](./frontend/typescript/README.md) | [TypeScript 基础知识](./frontend/typescript/TypeScript基础知识.md) |
 | DevOps（`devops`） | [Docker](./devops/docker/README.md) | [Docker 基础知识](./devops/docker/Docker基础知识.md) |
 
 
