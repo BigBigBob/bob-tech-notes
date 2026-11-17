@@ -9,6 +9,10 @@ This topic covers container fundamentals, image builds, storage, networking, Doc
 
 ## Articles
 
+<div class="blog-article-list" markdown="1">
+
 - [Docker Fundamentals](./basics.md) covers Docker concepts, installation, common commands, data persistence, image builds, networking, Docker Compose, and offline delivery.
 
-[Back to the main index](../../README.md)
+</div>
+
+[Back to the Tech Blog](../../tech/README.md)

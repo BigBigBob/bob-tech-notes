@@ -11,8 +11,10 @@ JavaScript 專題收錄語言基礎、瀏覽器與 Node.js 執行機制、工程
 
 ## 文章列表
 
+<div class="blog-article-list" markdown="1">
+
 - [JavaScript 基礎知識](./basics.md)：介紹動態型別、作用域與閉包、函式、`this`、原型與 `class`、模組系統、`package.json` 以及非同步 JavaScript。
 
+</div>
 
-
-[返回文件總索引](../../README.md)
+[返回技術部落格](../../tech/README.md)

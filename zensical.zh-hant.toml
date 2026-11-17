@@ -1,7 +1,7 @@
 [project]
-site_name = "Bob Tech Notes"
+site_name = "BigBigBob 的個人部落格"
 site_url = "https://bigbigbob.github.io/bob-tech-notes/zh-hant/"
-site_description = "BigBigBob 的技術知識庫，收錄 JavaScript、TypeScript 和 Docker 學習筆記。"
+site_description = "BigBigBob 的個人部落格網站"
 site_author = "BigBigBob"
 repo_url = "https://github.com/BigBigBob/bob-tech-notes"
 repo_name = "BigBigBob/bob-tech-notes"
@@ -11,16 +11,19 @@ docs_dir = "translations/zh-hant"
 site_dir = ".build/zh-hant"
 nav = [
   { "首頁" = "README.md" },
-  { "前端開發" = [
-    { "JavaScript" = ["frontend/javascript/README.md", { "JavaScript 基礎知識" = "frontend/javascript/basics.md" }] },
-    { "TypeScript" = ["frontend/typescript/README.md", { "TypeScript 基礎知識" = "frontend/typescript/basics.md" }] },
-  ] },
-  { "DevOps" = [
-    { "Docker" = ["devops/docker/README.md", { "Docker 基礎知識" = "devops/docker/basics.md" }] },
+  { "技術部落格" = [
+    "tech/README.md",
+    { "前端開發" = [
+      { "JavaScript" = ["frontend/javascript/README.md", { "JavaScript 基礎知識" = "frontend/javascript/basics.md" }] },
+      { "TypeScript" = ["frontend/typescript/README.md", { "TypeScript 基礎知識" = "frontend/typescript/basics.md" }] },
+    ] },
+    { "DevOps" = [
+      { "Docker" = ["devops/docker/README.md", { "Docker 基礎知識" = "devops/docker/basics.md" }] },
+    ] },
   ] },
 ]
 
 [project.theme]
 custom_dir = "overrides"
 language = "zh-Hant"
-features = ["navigation.indexes", "content.code.copy"]
+features = ["navigation.indexes", "navigation.tabs", "content.code.copy"]

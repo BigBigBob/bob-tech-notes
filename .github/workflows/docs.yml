@@ -1,4 +1,4 @@
-name: Publish Bob Tech Notes
+name: Publish BigBigBob’s Personal Blog
 
 on:
   push:

@@ -9,6 +9,10 @@ This topic covers language fundamentals, how browsers and Node.js run JavaScript
 
 ## Articles
 
+<div class="blog-article-list" markdown="1">
+
 - [JavaScript Fundamentals](./basics.md) covers dynamic typing, scope and closures, functions, `this`, prototypes and `class`, modules, `package.json`, and asynchronous JavaScript.
 
-[Back to the main index](../../README.md)
+</div>
+
+[Back to the Tech Blog](../../tech/README.md)

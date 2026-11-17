@@ -2,6 +2,7 @@
 
 {% set translations = {
   "home": ["", ""],
+  "tech": ["tech/", "tech/"],
   "javascript": ["frontend/javascript/", "frontend/javascript/"],
   "javascript-basics": ["frontend/javascript/JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/", "frontend/javascript/basics/"],
   "typescript": ["frontend/typescript/", "frontend/typescript/"],
@@ -21,6 +22,7 @@
 
 {% block extrahead %}
   {{ super() }}
+  <style>{% include "blog.css" %}</style>
   {% if paths %}
     {% for language, hreflang, name, prefix in locales %}
       <link rel="alternate" hreflang="{{ hreflang }}" href="{{ origin }}{{ site_path }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}">
@@ -31,9 +33,8 @@
 
 {% block content %}
   {% if paths %}
-    <nav aria-label="{{ labels[config.theme.language] }}">
+    <nav class="blog-languages" aria-label="{{ labels[config.theme.language] }}">
       {% for language, hreflang, name, prefix in locales %}
-        {% if not loop.first %}<span aria-hidden="true"> · </span>{% endif %}
         <a lang="{{ hreflang }}" hreflang="{{ hreflang }}" href="{{ site_path }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}"{% if language == config.theme.language %} aria-current="page"{% endif %}>{{ name }}</a>
       {% endfor %}
     </nav>

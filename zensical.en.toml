@@ -1,7 +1,7 @@
 [project]
-site_name = "Bob Tech Notes"
+site_name = "BigBigBob’s Personal Blog"
 site_url = "https://bigbigbob.github.io/bob-tech-notes/en/"
-site_description = "BigBigBob’s technical notes on JavaScript, TypeScript, and Docker."
+site_description = "BigBigBob’s personal blog"
 site_author = "BigBigBob"
 repo_url = "https://github.com/BigBigBob/bob-tech-notes"
 repo_name = "BigBigBob/bob-tech-notes"
@@ -11,16 +11,19 @@ docs_dir = "translations/en"
 site_dir = ".build/en"
 nav = [
   { "Home" = "README.md" },
-  { "Frontend Development" = [
-    { "JavaScript" = ["frontend/javascript/README.md", { "JavaScript Fundamentals" = "frontend/javascript/basics.md" }] },
-    { "TypeScript" = ["frontend/typescript/README.md", { "TypeScript Fundamentals" = "frontend/typescript/basics.md" }] },
-  ] },
-  { "DevOps" = [
-    { "Docker" = ["devops/docker/README.md", { "Docker Fundamentals" = "devops/docker/basics.md" }] },
+  { "Tech Blog" = [
+    "tech/README.md",
+    { "Frontend Development" = [
+      { "JavaScript" = ["frontend/javascript/README.md", { "JavaScript Fundamentals" = "frontend/javascript/basics.md" }] },
+      { "TypeScript" = ["frontend/typescript/README.md", { "TypeScript Fundamentals" = "frontend/typescript/basics.md" }] },
+    ] },
+    { "DevOps" = [
+      { "Docker" = ["devops/docker/README.md", { "Docker Fundamentals" = "devops/docker/basics.md" }] },
+    ] },
   ] },
 ]
 
 [project.theme]
 custom_dir = "overrides"
 language = "en"
-features = ["navigation.indexes", "content.code.copy"]
+features = ["navigation.indexes", "navigation.tabs", "content.code.copy"]

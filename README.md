@@ -1,16 +1,16 @@
-# Bob Tech Notes
+# BigBigBob 的个人博客
 
-一个持续整理的中文技术知识库，用于沉淀学习笔记、实践记录和专题文章。
-
-这里不仅记录“命令怎么写”，也尽量说明相关原理、适用场景、验证方式和风险边界，让内容能够被查阅、复现和长期维护。
+这里记录我的学习、实践和思考。技术博客是目前的栏目，后续会陆续加入其他栏目。
 
 [简体中文](https://bigbigbob.github.io/bob-tech-notes/) · [English](https://bigbigbob.github.io/bob-tech-notes/en/) · [繁體中文](https://bigbigbob.github.io/bob-tech-notes/zh-hant/)
 
 
 
-## 文档导航
+## 当前栏目
 
-完整分类和归档规则请查看 [docs 文档索引](./docs/README.md)。
+### 技术博客
+
+[技术博客栏目索引](./docs/tech/README.md)收录技术学习笔记、实践记录和专题文章。文章会说明相关原理、适用场景、验证方式和风险边界，便于查阅、复现和长期维护。
 
 | 技术方向 | 技术专题 | 文档 | 内容简介 |
 | --- | --- | --- | --- |
@@ -26,32 +26,41 @@
 bob-tech-notes/
 ├── README.md
 ├── LICENSE
-└── docs/
-    ├── README.md
-    ├── frontend/
-    │   ├── javascript/
-    │   │   ├── README.md
-    │   │   └── JavaScript基础知识.md
-    │   └── typescript/
-    │       ├── README.md
-    │       └── TypeScript基础知识.md
-    └── devops/
-        └── docker/
-            ├── README.md
-            └── Docker基础知识.md
+├── docs/
+│   ├── README.md
+│   ├── tech/
+│   │   └── README.md
+│   ├── frontend/
+│   │   ├── javascript/
+│   │   │   ├── README.md
+│   │   │   └── JavaScript基础知识.md
+│   │   └── typescript/
+│   │       ├── README.md
+│   │       └── TypeScript基础知识.md
+│   └── devops/
+│       └── docker/
+│           ├── README.md
+│           └── Docker基础知识.md
+└── translations/
+    ├── en/
+    └── zh-hant/
 ```
 
-文档统一按照 `docs/<技术领域>/<技术或框架>/<文章>.md` 归档。新领域或技术专题在出现第一篇文章时再创建，避免保留大量空目录。
+简体原稿在 `docs/`，英文与繁体译文分别在 `translations/en/` 和 `translations/zh-hant/`。
+
+新增栏目时，在三个语言目录下使用同一栏目短名创建栏目首页，并同步更新三语首页入口、Zensical 导航和 `overrides/main.html` 中的语言对应路径。
 
 
 
-## 文档约定
+## 技术文章归档约定
+
+技术文章按 `docs/<技术领域>/<技术或框架>/<文章>.md` 归档。新领域或技术专题在出现第一篇文章时创建。
 
 1. 文件名应直接表达主题；需要区分内容类型时，可使用 `-入门`、`-实战`、`-原理`、`-排错` 等后缀。
 2. 不使用容易过时的 `最终版`、`最新版` 等名称；历史稿可以使用日期或 `-原始版本` 标识。
 3. 图片和附件存放在文章同级的 `assets/` 目录中，并通过相对路径引用。
 4. 一篇文章涉及多个方向时，只在核心主题目录保留一份正文，其他专题通过索引链接引用。
-5. 新增、移动或重命名文档后，需要同步更新根目录、`docs/` 和对应专题的 README 索引。
+5. 新增、移动或重命名技术文章后，同步更新仓库 README 的技术索引、技术博客栏目页和对应专题索引。
 
 
 
@@ -77,7 +86,7 @@ uv run --locked python -m http.server 8000 --bind 127.0.0.1 --directory .build/p
 
 打开 [本地预览](http://127.0.0.1:8000/bob-tech-notes/)。更新内容后重新运行构建脚本，再刷新浏览器。
 
-简体原稿在 `docs/`，英文与繁体译文在 `translations/en/` 和 `translations/zh-hant/`。新增页面时，同步更新三份 Zensical 导航配置，并在 `overrides/main.html` 中登记三语页面的对应路径。
+新增页面时，同步更新三份 Zensical 导航配置，并在 `overrides/main.html` 中登记三语页面的对应路径。
 
 首次发布时，在 GitHub 仓库的 **Settings → Pages → Source** 选择 **GitHub Actions**。之后合入 `main` 的变更会自动构建并发布。
 
@@ -103,7 +112,7 @@ uv run --locked python -m http.server 8000 --bind 127.0.0.1 --directory .build/p
 你可以复制、转载、修改和再发布这些内容，包括用于商业目的，但需要保留适当署名、提供许可证链接，并说明是否对原内容进行了修改。建议使用以下署名格式：
 
 ```text
-来源：Bob Tech Notes
+来源：BigBigBob 的个人博客
 作者：BigBigBob
 原文：https://github.com/BigBigBob/bob-tech-notes
 许可证：CC BY 4.0
