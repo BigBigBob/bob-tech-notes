@@ -1,0 +1,26 @@
+[project]
+site_name = "Bob Tech Notes"
+site_url = "https://bigbigbob.github.io/bob-tech-notes/"
+site_description = "BigBigBob 的技术知识库，收录 JavaScript、TypeScript 和 Docker 学习笔记。"
+site_author = "BigBigBob"
+repo_url = "https://github.com/BigBigBob/bob-tech-notes"
+repo_name = "BigBigBob/bob-tech-notes"
+edit_uri = "edit/main/docs/"
+copyright = 'BigBigBob · 原创内容采用 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>。'
+docs_dir = "docs"
+site_dir = ".build/zh-hans"
+nav = [
+  { "首页" = "README.md" },
+  { "前端开发" = [
+    { "JavaScript" = ["frontend/javascript/README.md", { "JavaScript 基础知识" = "frontend/javascript/JavaScript基础知识.md" }] },
+    { "TypeScript" = ["frontend/typescript/README.md", { "TypeScript 基础知识" = "frontend/typescript/TypeScript基础知识.md" }] },
+  ] },
+  { "DevOps" = [
+    { "Docker" = ["devops/docker/README.md", { "Docker 基础知识" = "devops/docker/Docker基础知识.md" }] },
+  ] },
+]
+
+[project.theme]
+custom_dir = "overrides"
+language = "zh"
+features = ["navigation.indexes", "content.code.copy"]

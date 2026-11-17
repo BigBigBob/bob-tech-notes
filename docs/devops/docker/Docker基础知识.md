@@ -1,4 +1,11 @@
-### 一、核心概念与架构
+---
+translation_id: docker-basics
+description: Docker 核心概念、命令、存储、镜像、网络、Compose 和离线交付。
+---
+
+# Docker 基础知识
+
+## 一、核心概念与架构
 
  Docker 中最常见的几个对象：
 
@@ -11,15 +18,15 @@
 
 
 
-### 二、安装 Docker
+## 二、安装 Docker
 
-#### 1. 选择平台
+### 1. 选择平台
 
 - **Windows / macOS 本地开发**：优先使用 Docker Desktop，并启用 WSL 2（Windows）或默认虚拟化后端。
 - **Linux 服务器**：安装 Docker Engine。
 
 
-#### 2. Ubuntu24 安装 Docker 示例
+### 2. Ubuntu24 安装 Docker 示例
 
 ```bash
 # 1. 更新软件包索引并安装必要工具
@@ -54,9 +61,9 @@ sudo docker run --rm hello-world
 
 
 
-### 三、常用命令
+## 三、常用命令
 
-#### 1. 查看状态与资源
+### 1. 查看状态与资源
 
 ```bash
 # Docker 环境与服务端状态
@@ -83,7 +90,7 @@ docker system df                   # 汇总镜像、容器、数据卷和构建�
 docker system df -v                # 显示每个对象的详细磁盘占用，输出可能较长
 ```
 
-#### 2. 镜像
+### 2. 镜像
 
 ```bash
 # 获取与列出镜像
@@ -98,7 +105,7 @@ docker image rm nginx:1.28                     # 删除未被容器引用的镜�
 docker image prune                             # 删除悬空镜像，执行前会要求确认
 ```
 
-#### 3. 创建、运行与停止容器
+### 3. 创建、运行与停止容器
 
 ```bash
 # 创建并立即启动一个后台容器
@@ -135,7 +142,7 @@ docker rm -f web                    # 强制终止并删除运行中的容器，
 
   
 
-#### 4. 复制、导出与导入
+### 4. 复制、导出与导入
 
 ```bash
 # 在宿主机与容器之间复制文件
@@ -164,11 +171,11 @@ docker image load --input nginx_1.28.tar
 
 
 
-### 四、数据持久化与挂载
+## 四、数据持久化与挂载
 
 容器的可写层与容器生命周期绑定：停止、重启容器时数据仍在，但删除容器后可写层也会被删除。因此，数据库文件、用户上传内容等重要数据必须放在 Volume、绑定挂载或外部存储中，而不能只写入容器文件系统。
 
-#### 1. 三种挂载方式如何选择
+### 1. 三种挂载方式如何选择
 
 | 类型 | 数据位置与管理者 | 适用场景 | 主要特点 |
 | --- | --- | --- | --- |
@@ -178,7 +185,7 @@ docker image load --input nginx_1.28.tar
 
 `--mount` 参数含义更明确，复杂挂载优先使用；`-v`/`--volume` 写法更短，仍然受支持。容器内的目标路径必须使用绝对路径。
 
-#### 2. 使用命名 Volume 保存数据库数据
+### 2. 使用命名 Volume 保存数据库数据
 
 ```bash
 # 创建并查看命名卷
@@ -217,7 +224,7 @@ docker run -d --name mysql \
 
 Volume 的生命周期独立于容器，但并非不会丢失。`docker volume rm mysql-data`、`docker compose down -v` 和带 `--volumes` 的清理命令都可能删除数据卷；执行前必须确认备份和目标范围。不要直接修改 Docker 内部存储目录（通常位于 `/var/lib/docker`）。
 
-#### 3. 使用 Bind mount 挂载配置或源码
+### 3. 使用 Bind mount 挂载配置或源码
 
 ```bash
 # 当前目录必须已经存在 nginx.conf
@@ -230,9 +237,9 @@ docker run --rm \
 
 
 
-### 五、Dockerfile 与镜像构建
+## 五、Dockerfile 与镜像构建
 
-#### 1. 基本规则
+### 1. 基本规则
 
 Dockerfile 是镜像的可复现构建清单。`docker build` 按顺序解析指令，每条会形成可缓存的构建结果；最终得到镜像，而不是直接得到正在运行的容器。
 
@@ -250,7 +257,7 @@ Dockerfile 是镜像的可复现构建清单。`docker build` 按顺序解析指
 
 
 
-#### 2. 常用指令
+### 2. 常用指令
 
 | 指令 | 用途与要点 |
 | --- | --- |
@@ -270,7 +277,7 @@ Dockerfile 是镜像的可复现构建清单。`docker build` 按顺序解析指
 
 
 
-#### 3. 简单 Java 应用示例
+### 3. 简单 Java 应用示例
 
 假设已经有一个 Maven + Spring Boot 项目，并且在宿主机或 CI 中执行 `mvn clean package` 生成了 `target/my-service.jar`：
 
@@ -306,7 +313,7 @@ ENTRYPOINT ["java", "-jar", "/app/app.jar"]
 
 
 
-#### 4. 构建、检查与运行验证
+### 4. 构建、检查与运行验证
 
 ```bash
 # 先在宿主机生成 target/my-service.jar
@@ -326,9 +333,9 @@ docker run --rm -p 8080:8080 example/my-service:1.0.0
 
 
 
-### 六、网络
+## 六、网络
 
-#### 1. 容器网络的基本模型
+### 1. 容器网络的基本模型
 
 在 Linux 上，每个普通容器拥有独立的网络命名空间，包括自己的网卡、IP 地址、路由表、端口和 DNS 配置。使用 bridge 网络时，Docker 通常通过虚拟网卡把容器接入宿主机上的软件网桥，并通过转发/NAT 访问外部网络。
 
@@ -356,7 +363,7 @@ app ──NAT/路由──> 宿主机网卡 ──> 外部网络
 
   
 
-#### 2. 常见网络模式
+### 2. 常见网络模式
 
 | 模式 | 说明 |
 | --- | --- |
@@ -369,7 +376,7 @@ app ──NAT/路由──> 宿主机网卡 ──> 外部网络
 
 如果 `docker run` 没有指定 `--network`，Linux 容器通常接入默认 `bridge`。实际应用应优先创建**自定义 bridge 网络**：它支持自动 DNS 解析，隔离范围也比所有容器共用默认 bridge 更清晰。旧的 `--link` 方式已经不推荐。
 
-#### 3. 自定义 bridge 与容器 DNS
+### 3. 自定义 bridge 与容器 DNS
 
 ```bash
 # 创建自定义 bridge 网络
@@ -397,7 +404,7 @@ docker network rm app-net
 
 Docker 内置 DNS 会把同一自定义网络中的容器名或网络别名解析成当前容器 IP。容器重建后 IP 可能改变，但名称可以保持不变，因此应用配置应写 `redis:6379`、`db:3306`，不要固定某个 `172.x.x.x` 地址。
 
-#### 4. 端口发布：`EXPOSE`、`-p` 与 `-P`
+### 4. 端口发布：`EXPOSE`、`-p` 与 `-P`
 
 `EXPOSE` 只是镜像元数据，用于说明应用预期监听的容器端口；真正允许宿主机或外部客户端进入容器，需要在运行时使用 `-p`/`--publish`。
 
@@ -426,7 +433,7 @@ docker port app-random
 
 端口发布也不等于已经配置好防火墙、云安全组、TLS 或身份认证。
 
-#### 5. 常见通信路径
+### 5. 常见通信路径
 
 | 访问方向 | 推荐地址 | 是否需要 `-p` |
 | --- | --- | --- |
@@ -436,7 +443,7 @@ docker port app-random
 | 容器访问互联网 | 目标域名或 IP | 默认 bridge 通常可直接出站 |
 | 不同 Docker 主机上的容器互访 | 负载均衡入口、路由、Swarm overlay 或其他编排网络 | 单机 bridge 不适用 |
 
-#### 6. 网络隔离与生产边界
+### 6. 网络隔离与生产边界
 
 一个容器可以同时连接多个网络。例如前端连接 `frontend-net` 和 `backend-net`，数据库只连接 `backend-net`，从而减少不必要的网络可达范围。还可以使用 `--internal` 创建默认不对外路由的内部网络：
 
@@ -453,7 +460,7 @@ docker rm -f app cache
 docker network rm frontend-net backend-net
 ```
 
-#### 7. 常用排障命令
+### 7. 常用排障命令
 
 ```bash
 # 查看网络和容器连接关系
@@ -467,7 +474,7 @@ docker port app
 
 
 
-### 七、Docker Compose（容器编排）
+## 七、Docker Compose（容器编排）
 
 Docker Compose V1 的独立命令 `docker-compose` 已是 Legacy。当前优先使用 Compose 插件，命令为 **`docker compose`**（中间空格）。以下命令应在 `compose.yaml` 所在目录执行；其中 `app`、`db` 是 Compose 文件中的服务名：
 
@@ -555,7 +562,7 @@ volumes:
 
 
 
-### 八、离线环境交付
+## 八、离线环境交付
 
 离线安装 Docker Engine 时，应从目标发行版与 CPU 架构对应的官方 RPM/DEB 或官方静态二进制包准备**完整且版本匹配**的依赖。离线前应在同版本测试机上完成安装演练、校验哈希并保留安装包清单。
 

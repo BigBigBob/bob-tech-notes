@@ -4,6 +4,8 @@
 
 这里不仅记录“命令怎么写”，也尽量说明相关原理、适用场景、验证方式和风险边界，让内容能够被查阅、复现和长期维护。
 
+[简体中文](https://bigbigbob.github.io/bob-tech-notes/) · [English](https://bigbigbob.github.io/bob-tech-notes/en/) · [繁體中文](https://bigbigbob.github.io/bob-tech-notes/zh-hant/)
+
 
 
 ## 文档导航
@@ -61,6 +63,23 @@ bob-tech-notes/
 git clone https://github.com/BigBigBob/bob-tech-notes.git
 cd bob-tech-notes
 ```
+
+### 在 Windows 上预览网站
+
+安装 [uv](https://docs.astral.sh/uv/getting-started/installation/)，在仓库根目录用 PowerShell 构建和预览三语站点：
+
+```powershell
+$env:UV_CACHE_DIR = Join-Path $PWD '.build\uv-cache'
+uv sync --locked
+uv run --locked python scripts/build_site.py
+uv run --locked python -m http.server 8000 --bind 127.0.0.1 --directory .build/preview
+```
+
+打开 [本地预览](http://127.0.0.1:8000/bob-tech-notes/)。更新内容后重新运行构建脚本，再刷新浏览器。
+
+简体原稿在 `docs/`，英文与繁体译文在 `translations/en/` 和 `translations/zh-hant/`。新增页面时，同步更新三份 Zensical 导航配置，并在 `overrides/main.html` 中登记三语页面的对应路径。
+
+首次发布时，在 GitHub 仓库的 **Settings → Pages → Source** 选择 **GitHub Actions**。之后合入 `main` 的变更会自动构建并发布。
 
 
 

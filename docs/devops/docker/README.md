@@ -1,3 +1,8 @@
+---
+translation_id: docker
+description: Docker 容器基础、镜像构建、存储、网络、Compose 与交付。
+---
+
 # Docker
 
 Docker 专题收录容器基础、镜像构建、存储、网络、Compose 与交付实践。

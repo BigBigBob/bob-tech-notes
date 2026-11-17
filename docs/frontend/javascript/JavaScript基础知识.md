@@ -1,3 +1,10 @@
+---
+translation_id: javascript-basics
+description: JavaScript 的动态类型、作用域、函数、原型、模块和异步编程。
+---
+
+# JavaScript 基础知识
+
 ## 一、**JavaScript 的运行时世界**
 
 ### 1.1、 JavaScript 的动态类型

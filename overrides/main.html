@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% set translations = {
+  "home": ["", ""],
+  "javascript": ["frontend/javascript/", "frontend/javascript/"],
+  "javascript-basics": ["frontend/javascript/JavaScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/", "frontend/javascript/basics/"],
+  "typescript": ["frontend/typescript/", "frontend/typescript/"],
+  "typescript-basics": ["frontend/typescript/TypeScript%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/", "frontend/typescript/basics/"],
+  "docker": ["devops/docker/", "devops/docker/"],
+  "docker-basics": ["devops/docker/Docker%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/", "devops/docker/basics/"],
+} %}
+{% set paths = translations[page.meta.translation_id] if page.meta and page.meta.translation_id in translations else none %}
+{% set locales = [
+  ("zh", "zh-Hans", "简体中文", ""),
+  ("en", "en", "English", "en/"),
+  ("zh-Hant", "zh-Hant", "繁體中文", "zh-hant/"),
+] %}
+{% set labels = {"zh": "语言", "en": "Language", "zh-Hant": "語言"} %}
+{% set site_path = "/bob-tech-notes/" %}
+{% set origin = "https://bigbigbob.github.io" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {% if paths %}
+    {% for language, hreflang, name, prefix in locales %}
+      <link rel="alternate" hreflang="{{ hreflang }}" href="{{ origin }}{{ site_path }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ origin }}{{ site_path }}{{ paths[0] }}">
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% if paths %}
+    <nav aria-label="{{ labels[config.theme.language] }}">
+      {% for language, hreflang, name, prefix in locales %}
+        {% if not loop.first %}<span aria-hidden="true"> · </span>{% endif %}
+        <a lang="{{ hreflang }}" hreflang="{{ hreflang }}" href="{{ site_path }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}"{% if language == config.theme.language %} aria-current="page"{% endif %}>{{ name }}</a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

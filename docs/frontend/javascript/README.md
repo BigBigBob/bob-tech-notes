@@ -1,3 +1,8 @@
+---
+translation_id: javascript
+description: JavaScript 语言、运行机制、工程化及实践笔记。
+---
+
 # JavaScript
 
 JavaScript 专题收录语言基础、浏览器与 Node.js 运行机制、工程化及实践笔记。

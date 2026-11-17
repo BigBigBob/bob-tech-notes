@@ -1,4 +1,9 @@
-# TypeScript&#x20;
+---
+translation_id: typescript-basics
+description: TypeScript 的类型推断、结构类型系统、模块、编译与常用类型。
+---
+
+# TypeScript 基础知识
 
 ​
 
@@ -6,7 +11,7 @@
 
 ​
 
-# 一、为 JavaScript 程序员准备的 TypeScript
+## 一、为 JavaScript 程序员准备的 TypeScript
 
 原文地址：[https://www.typescriptlang.org/zh/docs/handbook/typescript-in-5-minutes.html](https://www.typescriptlang.org/zh/docs/handbook/typescript-in-5-minutes.html)​
 
@@ -16,9 +21,9 @@
 
 这篇文档的核心是：**TypeScript = JavaScript + 静态类型系统**。它不会取代 JavaScript，而是在代码运行前检查类型错误，并为编辑器提供更可靠的补全、跳转与重构能力。[TypeScript 官方文档](https://www.typescriptlang.org/zh/docs/handbook/typescript-in-5-minutes.html)​
 
-## 1、页面内容总结
+### 1、页面内容总结
 
-### 1.1. 类型推断
+#### 1.1. 类型推断
 
 TypeScript 经常能根据赋值自动判断类型，不需要处处手写类型：
 
@@ -48,7 +53,7 @@ function double(value: number) {
 
 ***
 
-### 1.2. 使用接口描述对象
+#### 1.2. 使用接口描述对象
 
 `interface` 用于描述对象应该具有什么结构：
 
@@ -103,7 +108,7 @@ const user: User = new UserAccount("小李", 3);
 
 ***
 
-### 1.3. 常见特殊类型
+#### 1.3. 常见特殊类型
 
 除了 JavaScript 中的 `string`、`number`、`boolean` 等类型，TypeScript 还提供：
 
@@ -139,7 +144,7 @@ function printValue(value: unknown) {
 
 ***
 
-### 1.4. 联合类型
+#### 1.4. 联合类型
 
 联合类型用 `|` 表示“可能是其中一种类型”：
 
@@ -163,7 +168,7 @@ let status: Status = "loading";
 
 ***
 
-### 1.5. 类型收窄
+#### 1.5. 类型收窄
 
 如果一个值具有联合类型，使用前经常需要确定它当前是哪一种类型：
 
@@ -193,7 +198,7 @@ value instanceof Date
 
 ***
 
-### 1.6. 泛型
+#### 1.6. 泛型
 
 泛型可以理解成“类型的参数”：
 
@@ -220,7 +225,7 @@ const score = first([90, 85]);
 
 ***
 
-### 1.7. 结构化类型系统
+#### 1.7. 结构化类型系统
 
 TypeScript 主要看一个值“具有哪些属性”，而不是看它是否明确声明了某个类型：
 
@@ -247,9 +252,9 @@ printPoint(position); // 可以
 
 这叫做**结构类型**，也常被形象地称作“鸭子类型”：如果它具有所需的形状和行为，就可以作为该类型使用。
 
-## 2、初学者需要补充理解的知识
+### 2、初学者需要补充理解的知识
 
-### 2.1. TypeScript 只在开发阶段检查类型
+#### 2.1. TypeScript 只在开发阶段检查类型
 
 TypeScript 最终会被编译成 JavaScript：
 
@@ -274,7 +279,7 @@ const data = await response.json();
 
 ***
 
-### `2.2.interface` 和 `type` 怎么选择
+#### `2.2.interface` 和 `type` 怎么选择
 
 两者都能描述对象：
 
@@ -304,7 +309,7 @@ type Result =
 
 ***
 
-### 2.3. 可选属性与只读属性
+#### 2.3. 可选属性与只读属性
 
 ```ts
 interface User {
@@ -327,7 +332,7 @@ user.name = "小李";
 
 ***
 
-### 2.4. 数组、元组和普通对象
+#### 2.4. 数组、元组和普通对象
 
 ```ts
 const numbers: number[] = [1, 2, 3];
@@ -346,7 +351,7 @@ const scores: Record<string, number> = {
 
 ***
 
-### 2.5. 尽早开启严格检查
+#### 2.5. 尽早开启严格检查
 
 学习和新项目建议启用严格模式：
 
@@ -360,7 +365,7 @@ const scores: Record<string, number> = {
 
 它能开启更严格的空值、函数参数和属性检查。刚开始错误会多一些，但能帮助你形成更可靠的类型习惯。
 
-## 3、一个综合示例
+### 3、一个综合示例
 
 ```ts
 interface User {
@@ -397,7 +402,7 @@ console.log(describeUser(user));
 * 只读属性
 * 对 `undefined` 的类型收窄
 
-## 4、推荐学习顺序
+### 4、推荐学习顺序
 
 1. JavaScript 基础：变量、函数、对象、数组和模块
 2. TypeScript 基础类型与类型推断
@@ -446,7 +451,7 @@ console.log(typeof value);              // "string"
 console.log(typeof value === "string"); // true
 ```
 
-### `===` 和 `==` 的区别
+#### `===` 和 `==` 的区别
 
 `===` 不会自动转换类型，而 `==` 可能先转换类型再比较：
 
@@ -475,7 +480,7 @@ function print(value: string | number) {
 
 ​
 
-# 二、为 JavaScript 程序员准备的 TypeScript
+## 二、为 Java/C# 程序员准备的 TypeScript
 
 ​[：https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html)​
 
@@ -489,7 +494,7 @@ function print(value: string | number) {
 
 以下内容根据 [TypeScript 官方文档：TypeScript for Java/C# Programmers](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-oop.html) 整理。
 
-## 1、先学一点 JavaScript
+### 1、先学一点 JavaScript
 
 TypeScript 不会改变 JavaScript 的运行方式。
 
@@ -527,7 +532,7 @@ const value = Number(text);
 * Promise 和 `async/await`
 * JavaScript 的类型转换规则
 
-## 2、重新思考“类”
+### 2、重新思考“类”
 
 Java/C# 的常见思维
 
@@ -624,7 +629,7 @@ TypeScript 支持熟悉的面向对象功能：
 
 核心原则是：**根据问题选择类，而不是为了组织代码而强行创建类。**
 
-## 3、把类型理解为“值的集合”
+### 3、把类型理解为“值的集合”
 
 这是文章中最重要的思想之一。
 
@@ -689,7 +694,7 @@ const person = {
 
 所以一个值不一定只有一个唯一的 TypeScript 类型。
 
-## 4、结构类型系统
+### 4、结构类型系统
 
 Java/C# 主要采用**名义类型系统**：类型之间通常需要明确声明关系。
 
@@ -733,9 +738,9 @@ y: number;
 
 > 不在乎你叫什么类型，只在乎你是否具备我需要的结构。
 
-## 5、结构类型带来的特殊现象
+### 5、结构类型带来的特殊现象
 
-### 1. 空类型几乎接受任何对象
+#### 1. 空类型几乎接受任何对象
 
 ```ts
 class Empty {}
@@ -762,7 +767,7 @@ const value: Empty = { anything: 123 };
 
 ***
 
-### 2. 结构相同的类可能相互兼容
+#### 2. 结构相同的类可能相互兼容
 
 ```ts
 class Car {
@@ -808,7 +813,7 @@ class Golfer {
 // let car: Car = new Golfer(); // 错误
 ```
 
-## 6、类型在运行时会被删除
+### 6、类型在运行时会被删除
 
 TypeScript 的接口、类型别名和泛型主要用于编译阶段：
 
@@ -844,9 +849,9 @@ interface User {
 
 `interface` 只存在于“类型空间”，不能传给 `instanceof`。
 
-## 7、`typeof` 和 `instanceof` 的能力有限
+### 7、`typeof` 和 `instanceof` 的能力有限
 
-### `typeof`
+#### `typeof`
 
 `typeof` 可以检查 JavaScript 的基础运行时类型：
 
@@ -875,7 +880,7 @@ typeof null;          // "object"（JavaScript 的历史遗留行为）
 
 `typeof new Car()` 的结果也是 `"object"`，不会得到 `"Car"`。
 
-### `instanceof`
+#### `instanceof`
 
 类在运行时是真实存在的 JavaScript 值，因此可以使用 `instanceof`：
 
@@ -891,7 +896,7 @@ console.log(value instanceof Car); // true
 
 但 `instanceof` 检查的是对象的原型链，不是 TypeScript 接口结构。
 
-## 8、运行时如何判断接口类型
+### 8、运行时如何判断接口类型
 
 如果数据来自接口、文件或用户输入，不能只写一个类型断言：
 
@@ -933,7 +938,7 @@ if (isUser(data)) {
 
 真实项目中也常使用 Zod、Valibot 等运行时验证库。
 
-## 9、知识拓展：需要名义类型时怎么办
+### 9、知识拓展：需要名义类型时怎么办
 
 有时两个值结构相同，但业务上绝不能混用，例如用户 ID 和订单 ID：
 
@@ -972,7 +977,7 @@ const userId = createUserId("U100");
 * 已验证与未验证的数据
 * 不同计量单位
 
-## 10、知识拓展：用可辨识联合表达对象类型
+### 10、知识拓展：用可辨识联合表达对象类型
 
 与其依赖复杂的类继承，有时可以使用联合类型：
 
@@ -1030,7 +1035,7 @@ function showResult(result: Result<string>): void {
 
 ​
 
-# 三、JavaScript 模块
+## 三、JavaScript 模块
 
 这里的“JavaScript 模块”主要指现代的 **ES Module（ESM）**。它通过 `export` 和 `import` 把代码拆分到不同文件中。
 
@@ -1053,7 +1058,7 @@ export {};
 
 ***
 
-## 1、模块提供命名空间
+### 1、模块提供命名空间
 
 “命名空间”解决的是**名称冲突和代码归类**问题。
 
@@ -1092,7 +1097,7 @@ console.log(formatNumber(3.14159));
 
 这里每个文件天然形成一个独立的名称空间。
 
-### 1.1、整体导入为模块对象
+#### 1.1、整体导入为模块对象
 
 也可以把整个模块导入为一个对象：
 
@@ -1120,7 +1125,7 @@ class DateUtils {
 }
 ```
 
-### 1.2、与 TypeScript `namespace` 的区别
+#### 1.2、与 TypeScript `namespace` 的区别
 
 TypeScript 还有一个 `namespace` 关键字：
 
@@ -1153,7 +1158,7 @@ export function format(date: Date) {
 
 ***
 
-## 2、模块提供私有作用域
+### 2、模块提供私有作用域
 
 默认情况下，模块中声明的变量、函数和类只在当前模块内部可见。
 
@@ -1204,7 +1209,7 @@ console.log(getCount());
 
 这就是模块级私有作用域。
 
-### 2.1、“私有”不等于 `private`
+#### 2.1、“私有”不等于 `private`
 
 它与类的 `private` 是两个不同层面的概念。
 
@@ -1233,7 +1238,7 @@ export function increment() {
 * 模块私有不需要额外关键字
 * 只要不 `export`，其他模块就不能直接导入
 
-### 2.2、可以隐藏具体实现，只暴露公共接口
+#### 2.2、可以隐藏具体实现，只暴露公共接口
 
 ```ts
 // password.ts
@@ -1262,7 +1267,7 @@ import { createPassword } from "./password.js";
 
 这就是所谓的**封装**。
 
-### 2.3、浏览器中也不会自动污染全局变量
+#### 2.3、浏览器中也不会自动污染全局变量
 
 传统普通脚本：
 
@@ -1289,7 +1294,7 @@ console.log(window.message); // undefined
 
 ***
 
-## 3、模块提供“单例式加载”
+### 3、模块提供“单例式加载”
 
 模块第一次被加载时，顶层代码会执行一次。之后再次导入时，运行环境通常会复用已经加载过的模块实例。
 
@@ -1366,11 +1371,11 @@ let count = 0;
 
 ***
 
-## 4、模块提供导出
+### 4、模块提供导出
 
 `export` 决定模块愿意向外公开什么。
 
-### 4.1、命名导出
+#### 4.1、命名导出
 
 ```ts
 // math.ts
@@ -1418,7 +1423,7 @@ export {
 import { sum } from "./math.js";
 ```
 
-### 4.2、默认导出
+#### 4.2、默认导出
 
 一个模块最多只能有一个默认导出：
 
@@ -1446,7 +1451,7 @@ import Service from "./UserService.js";
 
 因为默认导入不依赖原来的名字。
 
-### 4.3、命名导出与默认导出怎么选
+#### 4.3、命名导出与默认导出怎么选
 
 命名导出的优势是名称统一：
 
@@ -1480,9 +1485,9 @@ import start, {
 
 ***
 
-## 5、模块提供导入
+### 5、模块提供导入
 
-### 5.1、导入命名成员
+#### 5.1、导入命名成员
 
 ```ts
 import {
@@ -1496,7 +1501,7 @@ console.log(PI);
 
 命名必须与导出名称匹配。
 
-### 5.2、导入时改名
+#### 5.2、导入时改名
 
 ```ts
 import {
@@ -1506,7 +1511,7 @@ import {
 calculateTotal(1, 2);
 ```
 
-### 5.3、导入默认成员
+#### 5.3、导入默认成员
 
 ```ts
 import UserService from "./UserService.js";
@@ -1514,7 +1519,7 @@ import UserService from "./UserService.js";
 
 默认导入没有花括号。
 
-### 5.4、导入整个模块
+#### 5.4、导入整个模块
 
 ```ts
 import * as MathUtils from "./math.js";
@@ -1523,7 +1528,7 @@ MathUtils.add(1, 2);
 console.log(MathUtils.PI);
 ```
 
-### 5.5、只执行模块，不导入成员
+#### 5.5、只执行模块，不导入成员
 
 ```ts
 import "./setup.js";
@@ -1547,7 +1552,7 @@ import "./setup.js";
 
 ​
 
-# 四、5分钟了解TypeScript
+## 四、5分钟了解TypeScript
 
 原文地址：[https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html)​
 
@@ -1559,9 +1564,9 @@ import "./setup.js";
 
 TypeScript 本身不是新的运行环境；最终运行的仍然是 JavaScript。[官方教程](https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html)​
 
-## 1. 页面内容总结
+### 1. 页面内容总结
 
-### 安装与编译
+#### 安装与编译
 
 页面使用全局安装：
 
@@ -1581,7 +1586,7 @@ npx tsc --init
 npx tsc
 ```
 
-### TypeScript 可以直接接受 JavaScript
+#### TypeScript 可以直接接受 JavaScript
 
 最初的文件虽然使用 `.ts` 扩展名，内容却完全是 JavaScript：
 
@@ -1597,7 +1602,7 @@ document.body.textContent = greeter(user);
 
 这体现了 TypeScript 的重要特征：它是 JavaScript 的超集，大量 JavaScript 代码可以直接迁移到 TypeScript。
 
-### 类型注解
+#### 类型注解
 
 给参数添加 `: string`：
 
@@ -1635,7 +1640,7 @@ const scores = [90, 85]; // 推断为 number[]
 
 官方也建议初学时不要添加过多多余注解。[常用类型与类型推断](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)​
 
-### 接口与结构化类型
+#### 接口与结构化类型
 
 页面定义了一个接口：
 
@@ -1689,7 +1694,7 @@ greeter({
 });
 ```
 
-### 类
+#### 类
 
 页面最后定义了一个 `Student` 类：
 
@@ -1732,7 +1737,7 @@ greeter(user); // 可以
 
 这里没有使用继承。它展示的是“类的实例可以符合接口”。
 
-### 在浏览器运行
+#### 在浏览器运行
 
 HTML 引入的不是 `.ts`，而是编译后的 `.js`：
 
@@ -1758,9 +1763,9 @@ greeter.js
 网页运行
 ```
 
-## 2. 最重要的知识扩展
+### 2. 最重要的知识扩展
 
-### 类型只存在于编译阶段
+#### 类型只存在于编译阶段
 
 接口和大部分类型注解不会出现在最终 JavaScript 中：
 
@@ -1787,7 +1792,7 @@ const data = await response.json();
 
 `data` 来自运行时，可能不符合你期望的结构。真正的项目需要自行校验，或者使用 Zod 等运行时验证库。
 
-### 类型错误不一定阻止生成 JavaScript
+#### 类型错误不一定阻止生成 JavaScript
 
 教程指出，即使发生类型错误，`tsc` 默认仍可能生成 JavaScript。这是因为 `noEmitOnError` 默认是 `false`。
 
@@ -1803,7 +1808,7 @@ const data = await response.json();
 
 这样存在类型错误时就不输出 JavaScript。[官方配置说明](https://www.typescriptlang.org/tsconfig/noEmitOnError.html)​
 
-### 建议开启严格模式
+#### 建议开启严格模式
 
 初学时就开启严格检查，长期反而更容易形成正确习惯：
 
@@ -1825,7 +1830,7 @@ function greeter(person) {
 }
 ```
 
-### 尽量避免 `any`
+#### 尽量避免 `any`
 
 `any` 相当于告诉 TypeScript：“不要检查这个值”：
 
@@ -1847,7 +1852,7 @@ function printValue(value: unknown) {
 
 `unknown` 会要求你先检查类型，这个过程叫类型收窄。
 
-### `interface` 和 `type` 的简单选择
+#### `interface` 和 `type` 的简单选择
 
 对象结构通常可以使用任意一种：
 
@@ -1877,7 +1882,7 @@ type Point = [number, number];
 
 `interface` 可以声明合并，而 `type` 能表达更广泛的类型组合。[官方对比](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces)​
 
-## 3. 更适合现在项目的完整示例
+### 3. 更适合现在项目的完整示例
 
 `greeter.ts`：
 
@@ -1950,7 +1955,7 @@ if (output) {
 <script src="dist/greeter.js" defer></script>
 ```
 
-## 4. 推荐学习顺序
+### 4. 推荐学习顺序
 
 学完这个页面后，可以依次学习：
 
@@ -1971,7 +1976,7 @@ if (output) {
 
 ​
 
-# 五、The TypeScript Handbook
+## 五、The TypeScript Handbook
 
 原文地址：[https://www.typescriptlang.org/docs/handbook/intro.html](https://www.typescriptlang.org/docs/handbook/intro.html)​
 
@@ -1985,7 +1990,7 @@ if (output) {
 
 ​[TypeScript Handbook 导言](https://www.typescriptlang.org/docs/handbook/intro.html)​
 
-## 1. TypeScript 为什么出现？
+### 1. TypeScript 为什么出现？
 
 JavaScript 最初主要用于给网页增加简单交互，后来逐渐扩展到：
 
@@ -2029,11 +2034,11 @@ calculatePrice("100", 2);
 
 “静态”表示运行前，“类型检查”表示检查值的使用方式是否符合预期。[官方说明](https://www.typescriptlang.org/docs/handbook/intro.html#about-this-handbook)​
 
-## 2. TypeScript 主要防止什么错误？
+### 2. TypeScript 主要防止什么错误？
 
 页面指出，程序中很多常见错误都属于类型错误，例如：
 
-### 拼写错误
+#### 拼写错误
 
 ```ts
 const user = {
@@ -2044,7 +2049,7 @@ console.log(user.naem);
 // 错误：不存在 naem，可能想写 name
 ```
 
-### 误解第三方 API
+#### 误解第三方 API
 
 ```ts
 const names = ["Alice", "Bob"];
@@ -2053,7 +2058,7 @@ names.push(100);
 // 错误：number 不能加入 string[]
 ```
 
-### 错误理解返回值
+#### 错误理解返回值
 
 ```ts
 function findUser(): User | undefined {
@@ -2065,7 +2070,7 @@ console.log(user.name);
 // 错误：user 可能是 undefined
 ```
 
-### 使用了错误的参数
+#### 使用了错误的参数
 
 ```ts
 function setAge(age: number) {}
@@ -2076,7 +2081,7 @@ setAge("十八");
 
 这些错误不一定会立即导致程序崩溃，但往往代表程序员的假设和实际代码不一致。
 
-## 3. 静态检查不等于运行时检查
+### 3. 静态检查不等于运行时检查
 
 这是导言背后最重要的知识扩展。
 
@@ -2146,11 +2151,11 @@ function isUser(value: unknown): value is User {
 }
 ```
 
-## 4. Handbook 的结构
+### 4. Handbook 的结构
 
 官方文档主要分成两种内容。
 
-### Handbook
+#### Handbook
 
 Handbook 是连续的学习材料，适合按照左侧目录从上往下阅读。
 
@@ -2163,7 +2168,7 @@ Handbook 是连续的学习材料，适合按照左侧目录从上往下阅读�
 
 它是一份综合指南，但不是完整的语言规范。[Handbook 结构说明](https://www.typescriptlang.org/docs/handbook/intro.html#how-is-this-handbook-structured)​
 
-### Reference
+#### Reference
 
 Reference 是专题参考资料，例如：
 
@@ -2185,9 +2190,9 @@ Reference 是专题参考资料，例如：
 
 初学时不要试图从头读完 Reference。
 
-## 5. Handbook 不教什么？
+### 5. Handbook 不教什么？
 
-### 不系统教授 JavaScript 基础
+#### 不系统教授 JavaScript 基础
 
 Handbook 默认你对以下 JavaScript 概念有一定了解：
 
@@ -2210,7 +2215,7 @@ TypeScript Handbook 会解释 `value: number`，但不一定详细解释箭头�
 
 如果 TypeScript 是你的第一门语言，官方建议先学习 JavaScript 基础。[官方初学建议](https://www.typescriptlang.org/docs/handbook/intro.html#about-this-handbook)​
 
-### 不是完整语言规范
+#### 不是完整语言规范
 
 Handbook 以容易理解为目标，不会覆盖所有边界情况和形式化规则。
 
@@ -2231,7 +2236,7 @@ const person: Named = employee; // 可以
 
 至于结构化类型系统的全部兼容规则，应在需要时再查 Reference。
 
-### 不负责讲解所有工具链
+#### 不负责讲解所有工具链
 
 Handbook 不会系统教授 TypeScript 如何与这些工具集成：
 
@@ -2244,7 +2249,7 @@ Handbook 不会系统教授 TypeScript 如何与这些工具集成：
 
 这些属于生态和工程工具，不是 TypeScript 类型系统本身。
 
-## 6. 根据背景选择入口
+### 6. 根据背景选择入口
 
 官方给出了几种入口：
 
@@ -2275,7 +2280,7 @@ TypeScript 类型系统
 
 不要等“彻底学完 JavaScript”再碰 TypeScript。可以学完一个 JavaScript 概念，紧接着学习它对应的 TypeScript类型表达。
 
-## 7. 对“类型”的正确理解
+### 7. 对“类型”的正确理解
 
 初学者容易把类型理解成给变量贴标签：
 
@@ -2315,7 +2320,7 @@ if (product) {
 
 类型系统的真正价值不是让代码显得严格，而是让函数、数据和模块之间的假设变得明确。
 
-## 8. 推荐的 Handbook 阅读顺序
+### 8. 推荐的 Handbook 阅读顺序
 
 对于初学者，建议按下面的顺序：
 
@@ -2343,7 +2348,7 @@ if (product) {
 
 ​
 
-# 六、The Basics
+## 六、The Basics
 
 原文地址：[https://www.typescriptlang.org/docs/handbook/2/basic-types.html](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)​
 
@@ -2351,9 +2356,9 @@ if (product) {
 
 这篇 [TypeScript Handbook：The Basics](https://www.typescriptlang.org/docs/handbook/2/basic-types.html) 并不是在罗列 `string`、`number` 等基础类型，而是在解释 TypeScript 的核心工作方式：**在 JavaScript 运行之前，通过静态类型分析提前发现错误。**
 
-## 1、页面核心内容
+### 1、页面核心内容
 
-### 1.1. TypeScript 是 JavaScript 的静态类型检查器
+#### 1.1. TypeScript 是 JavaScript 的静态类型检查器
 
 JavaScript 通常要运行代码后，才能发现某些错误：
 
@@ -2387,7 +2392,7 @@ message();
 
 ***
 
-### 1.2. TypeScript 还能发现“不一定立即报错”的问题
+#### 1.2. TypeScript 还能发现“不一定立即报错”的问题
 
 下面的 JavaScript 可以运行，但很可能是程序错误：
 
@@ -2409,7 +2414,7 @@ user.location;
 
 它还能发现：
 
-#### 拼写错误
+##### 拼写错误
 
 ```ts
 const announcement = "Hello";
@@ -2418,14 +2423,14 @@ announcement.toLocalLowerCase(); // 方法名写错
 announcement.toLocaleLowerCase(); // 正确
 ```
 
-#### 忘记调用函数
+##### 忘记调用函数
 
 ```ts
 Math.random < 0.5;   // 错误：比较的是函数本身
 Math.random() < 0.5; // 正确：比较函数返回值
 ```
 
-#### 不可能成立的逻辑
+##### 不可能成立的逻辑
 
 ```ts
 const value = Math.random() < 0.5 ? "a" : "b";
@@ -2441,7 +2446,7 @@ if (value !== "a") {
 
 ***
 
-### 1.3. 类型也能增强编辑器功能
+#### 1.3. 类型也能增强编辑器功能
 
 类型信息不仅用来报错，也能支持：
 
@@ -2457,7 +2462,7 @@ if (value !== "a") {
 
 ***
 
-### 1.4. `tsc` 编译器
+#### 1.4. `tsc` 编译器
 
 `tsc` 是 TypeScript 官方编译器。页面展示的是全局安装方式；实际项目中更推荐把它安装为项目开发依赖：
 
@@ -2504,7 +2509,7 @@ hello.js
 
 ***
 
-### 1.5. 默认情况下，有类型错误也可能生成 JavaScript
+#### 1.5. 默认情况下，有类型错误也可能生成 JavaScript
 
 例如：
 
@@ -2542,7 +2547,7 @@ npx tsc --noEmit
 
 ***
 
-### 1.6. 显式类型标注
+#### 1.6. 显式类型标注
 
 类型标注写在变量或参数名称之后：
 
@@ -2574,7 +2579,7 @@ greet("Alice", new Date()); // 正确
 
 ***
 
-### 1.7. 类型推断
+#### 1.7. 类型推断
 
 并非所有地方都需要手动写类型：
 
@@ -2608,7 +2613,7 @@ const result = add(10, 20); // 自动推断为 number
 
 ***
 
-### 1.8. 类型会在编译后被擦除
+#### 1.8. 类型会在编译后被擦除
 
 下面的 TypeScript：
 
@@ -2655,7 +2660,7 @@ function isUser(value: unknown): value is User {
 
 ***
 
-### 1.9. 降级编译（downleveling）
+#### 1.9. 降级编译（downleveling）
 
 TypeScript 可以把较新的 JavaScript 语法转换为较旧的语法。
 
@@ -2690,7 +2695,7 @@ var message = "Hello ".concat(name);
 
 ***
 
-### 1.10. 严格模式
+#### 1.10. 严格模式
 
 新项目建议启用：
 
@@ -2704,7 +2709,7 @@ var message = "Hello ".concat(name);
 
 `strict` 是一组严格检查选项的总开关，其中页面重点介绍了两个。
 
-#### `noImplicitAny`
+##### `noImplicitAny`
 
 如果 TypeScript 无法推断参数类型，宽松模式下可能退化为 `any`：
 
@@ -2722,7 +2727,7 @@ function printName(name: string): void {
 }
 ```
 
-#### `strictNullChecks`
+##### `strictNullChecks`
 
 开启后，`null` 和 `undefined` 不再能随意赋给其他类型：
 
@@ -2749,9 +2754,9 @@ if (user !== undefined) {
 console.log((user ?? "Guest").toUpperCase());
 ```
 
-## 2、知识扩展
+### 2、知识扩展
 
-### 2.1. `any` 和 `unknown` 的区别
+#### 2.1. `any` 和 `unknown` 的区别
 
 `any` 基本等于关闭类型检查：
 
@@ -2779,7 +2784,7 @@ if (typeof value === "string") {
 
 ***
 
-### 2.2. TypeScript 采用结构类型系统
+#### 2.2. TypeScript 采用结构类型系统
 
 TypeScript 主要关心对象“长什么样”，而不是它叫什么名字：
 
@@ -2804,7 +2809,7 @@ greet(employee); // 合法，因为 employee 至少具有 name: string
 
 ***
 
-### 2.3. 类型缩小（narrowing）
+#### 2.3. 类型缩小（narrowing）
 
 TypeScript 会根据条件判断，把宽泛类型缩小成更具体的类型：
 
@@ -2831,7 +2836,7 @@ function format(value: string | number): string {
 
 ***
 
-### 2.4. TypeScript 不能保证程序绝对安全
+#### 2.4. TypeScript 不能保证程序绝对安全
 
 TypeScript 擅长发现：
 
@@ -2858,7 +2863,7 @@ TypeScript 擅长发现：
 
 ​
 
-# 七、Everyday Types
+## 七、Everyday Types
 
 原文地址：[https://www.typescriptlang.org/docs/handbook/2/everyday-types.html](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)​
 
@@ -2870,9 +2875,9 @@ TypeScript 擅长发现：
 
 > TypeScript 使用基本类型描述数据，再通过数组、对象、联合类型、字面量类型等方式组合出复杂类型。
 
-## 1、基本类型
+### 1、基本类型
 
-### 1. `string`、`number`、`boolean`
+#### 1. `string`、`number`、`boolean`
 
 ```ts
 const username: string = "Alice";
@@ -2907,7 +2912,7 @@ let active: Boolean;
 
 ***
 
-### 2. 数组
+#### 2. 数组
 
 有两种等价写法：
 
@@ -2947,7 +2952,7 @@ names.push("Eve"); // 错误
 
 ***
 
-## 2、`any`
+### 2、`any`
 
 `any` 会关闭相关值的类型检查：
 
@@ -2969,7 +2974,7 @@ const age: number = value;
 * 不知道类型时优先使用 `unknown`。
 * 只有迁移旧项目或处理确实无法描述的第三方数据时，才临时使用 `any`。
 
-### `any` 和 `unknown`
+#### `any` 和 `unknown`
 
 ```ts
 let input: unknown = "hello";
@@ -2990,7 +2995,7 @@ if (typeof input === "string") {
 
 ***
 
-## 3、类型标注和类型推断
+### 3、类型标注和类型推断
 
 类型标注写在变量名称后面：
 
@@ -3034,9 +3039,9 @@ status = "success"; // 合法
 
 ***
 
-## 4、函数类型
+### 4、函数类型
 
-### 1. 参数类型
+#### 1. 参数类型
 
 ```ts
 function greet(name: string) {
@@ -3065,7 +3070,7 @@ function add(a: number, b: number): number {
 }
 ```
 
-### 2. 返回值类型
+#### 2. 返回值类型
 
 ```ts
 function getAge(): number {
@@ -3089,7 +3094,7 @@ function getAge(): number {
 }
 ```
 
-### 3. 异步函数
+#### 3. 异步函数
 
 `async` 函数的返回类型是 `Promise<T>`：
 
@@ -3108,7 +3113,7 @@ async function getUsername(): string {
 // 错误：async 函数返回 Promise
 ```
 
-### 4. 上下文类型推断
+#### 4. 上下文类型推断
 
 ```ts
 const names = ["Alice", "Bob", "Eve"];
@@ -3124,7 +3129,7 @@ names.forEach((name) => {
 
 ***
 
-## 5、对象类型
+### 5、对象类型
 
 可以直接描述对象的结构：
 
@@ -3154,7 +3159,7 @@ printUser(employee); // 合法
 
 `employee` 多出一个 `department` 属性没有关系，因为它已经拥有 `name` 和 `age`。
 
-### 可选属性
+#### 可选属性
 
 属性名后添加 `?`：
 
@@ -3222,7 +3227,7 @@ nickname: string | undefined;
 
 ***
 
-## 6、联合类型
+### 6、联合类型
 
 联合类型表示一个值可能属于多个类型中的任意一个：
 
@@ -3237,7 +3242,7 @@ printId(100);
 printId("USER-100");
 ```
 
-### 只能直接使用共有能力
+#### 只能直接使用共有能力
 
 ```ts
 function printId(id: string | number) {
@@ -3282,7 +3287,7 @@ function firstThree(value: string | number[]) {
 
 ***
 
-## 7、类型别名 `type`
+### 7、类型别名 `type`
 
 类型别名可以给任意类型起一个名字：
 
@@ -3317,7 +3322,7 @@ let value: SanitizedString = "ordinary string"; // 仍然合法
 
 ***
 
-## 8、接口 `interface`
+### 8、接口 `interface`
 
 接口专门用于描述对象结构：
 
@@ -3332,7 +3337,7 @@ function printUser(user: User) {
 }
 ```
 
-### `type` 和 `interface` 的区别
+#### `type` 和 `interface` 的区别
 
 两者描述普通对象时非常相似：
 
@@ -3403,7 +3408,7 @@ interface WindowConfig {
 
 ***
 
-## 9、类型断言
+### 9、类型断言
 
 类型断言表示：“我比编译器更清楚这个值的类型。”
 
@@ -3422,7 +3427,7 @@ const canvas =
 
 但尖括号写法不能在 `.tsx` 中正常使用，因此通常统一使用 `as`。
 
-### 断言不是类型转换
+#### 断言不是类型转换
 
 ```ts
 const value = "123" as unknown as number;
@@ -3451,7 +3456,7 @@ value as unknown as User;
 
 ***
 
-## 10、字面量类型
+### 10、字面量类型
 
 字面量类型表示某一个具体值：
 
@@ -3494,7 +3499,7 @@ type RequestState = "idle" | "loading" | "success" | "error";
 
 ***
 
-## 11、字面量推断和 `as const`
+### 11、字面量推断和 `as const`
 
 注意下面的对象：
 
@@ -3543,7 +3548,7 @@ const request = {
 
 > `const` 防止变量重新赋值；`as const` 让对象属性在类型层面成为只读字面量。
 
-### 延伸：`satisfies`
+#### 延伸：`satisfies`
 
 如果既想检查对象是否符合某种结构，又想保留精确推断，可以使用 `satisfies`：
 
@@ -3563,7 +3568,7 @@ const request = {
 
 ***
 
-## 12、`null` 和 `undefined`
+### 12、`null` 和 `undefined`
 
 它们都表示“缺少值”，但含义通常不同：
 
@@ -3602,7 +3607,7 @@ function displayName(name: string | null | undefined) {
 
 `??` 只把 `null` 和 `undefined` 当成缺少值。
 
-### 非空断言 `!`
+#### 非空断言 `!`
 
 ```ts
 const element = document.getElementById("app");
@@ -3626,7 +3631,7 @@ if (element !== null) {
 
 ***
 
-## 13、枚举 `enum`
+### 13、枚举 `enum`
 
 ```ts
 enum Direction {
@@ -3665,9 +3670,9 @@ type Direction = typeof Direction[keyof typeof Direction];
 
 ***
 
-## 14、`bigint` 和 `symbol`
+### 14、`bigint` 和 `symbol`
 
-### `bigint`
+#### `bigint`
 
 用于表示超过普通 `number` 安全整数范围的大整数：
 
@@ -3685,7 +3690,7 @@ const amount2: bigint = 100n;
 
 使用 `bigint` 字面量时，编译目标通常需要支持 ES2020 或更高版本。
 
-### `symbol`
+#### `symbol`
 
 每个 `Symbol()` 都是唯一值：
 
@@ -3700,7 +3705,7 @@ console.log(first === second); // false
 
 ***
 
-## 15、综合示例
+### 15、综合示例
 
 ```ts
 type UserStatus = "active" | "disabled";
@@ -3744,7 +3749,7 @@ console.log(formatUser(user));
 * 返回值类型
 * `satisfies`
 
-## 16、速查表
+### 16、速查表
 
 | **写法**             | **含义**     |
 | ------------------ | ---------- |

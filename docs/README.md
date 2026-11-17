@@ -1,4 +1,11 @@
-# 文档索引
+---
+translation_id: home
+description: BigBigBob 的技术知识库，收录学习笔记、实践记录和专题文章。
+---
+
+# Bob Tech Notes
+
+这里是 BigBigBob 的中文技术知识库，收录学习笔记、实践记录和专题文章。
 
 仓库文档按照“技术领域 → 技术或框架 → 文章”三级结构组织。
 
@@ -48,4 +55,4 @@ docs/
 - 新领域或专题在出现第一篇文章时再创建，不预建空目录。
 - 文件名应突出主题，可以用 `-入门`、`-实战`、`-原理`、`-排错` 等后缀描述内容类型。
 - 图片、示意图和附件放在文章同级的 `assets/` 中。
-- 新增或调整文档后，同步更新本索引和根目录 [README](../README.md)。
+- 新增或调整文档后，同步更新本索引和仓库的 [README](https://github.com/BigBigBob/bob-tech-notes/blob/main/README.md)。
