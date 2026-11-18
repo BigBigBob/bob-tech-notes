@@ -1,7 +1,7 @@
 [project]
-site_name = "BigBigBob 的個人部落格"
-site_url = "https://bigbigbob.github.io/bob-tech-notes/zh-hant/"
-site_description = "BigBigBob 的個人部落格網站"
+site_name = "時安手記"
+site_url = "https://shianpages.com/zh-hant/"
+site_description = "記錄技術實作與日常生活，寫下做過的事、學到的東西，以及一路上的思考。"
 site_author = "BigBigBob"
 repo_url = "https://github.com/BigBigBob/bob-tech-notes"
 repo_name = "BigBigBob/bob-tech-notes"

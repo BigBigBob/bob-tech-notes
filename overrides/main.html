@@ -17,25 +17,28 @@
   ("zh-Hant", "zh-Hant", "繁體中文", "zh-hant/"),
 ] %}
 {% set labels = {"zh": "语言", "en": "Language", "zh-Hant": "語言"} %}
-{% set site_path = "/bob-tech-notes/" %}
-{% set origin = "https://bigbigbob.github.io" %}
+{% set site_url = "https://shianpages.com/" %}
 
 {% block extrahead %}
   {{ super() }}
   <style>{% include "blog.css" %}</style>
   {% if paths %}
     {% for language, hreflang, name, prefix in locales %}
-      <link rel="alternate" hreflang="{{ hreflang }}" href="{{ origin }}{{ site_path }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}">
+      <link rel="alternate" hreflang="{{ hreflang }}" href="{{ site_url }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}">
     {% endfor %}
-    <link rel="alternate" hreflang="x-default" href="{{ origin }}{{ site_path }}{{ paths[0] }}">
+    <link rel="alternate" hreflang="x-default" href="{{ site_url }}{{ paths[0] }}">
   {% endif %}
 {% endblock %}
 
 {% block content %}
   {% if paths %}
+    {% set is_default_language = config.theme.language == 'zh' %}
+    {% set page_depth = (paths[0 if is_default_language else 1] | split('/') | list | length) - 1 %}
+    {% set locale_depth = 0 if is_default_language else 1 %}
+    {% set relative_root = '../' * (page_depth + locale_depth) or './' %}
     <nav class="blog-languages" aria-label="{{ labels[config.theme.language] }}">
       {% for language, hreflang, name, prefix in locales %}
-        <a lang="{{ hreflang }}" hreflang="{{ hreflang }}" href="{{ site_path }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}"{% if language == config.theme.language %} aria-current="page"{% endif %}>{{ name }}</a>
+        <a lang="{{ hreflang }}" hreflang="{{ hreflang }}" href="{{ relative_root }}{{ prefix }}{{ paths[0 if language == 'zh' else 1] }}"{% if language == config.theme.language %} aria-current="page"{% endif %}>{{ name }}</a>
       {% endfor %}
     </nav>
   {% endif %}

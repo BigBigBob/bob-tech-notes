@@ -1,7 +1,7 @@
 [project]
-site_name = "BigBigBob’s Personal Blog"
-site_url = "https://bigbigbob.github.io/bob-tech-notes/en/"
-site_description = "BigBigBob’s personal blog"
+site_name = "Shi’an Pages"
+site_url = "https://shianpages.com/en/"
+site_description = "Notes on technology and everyday life, from things I’ve built and lessons I’ve learned to reflections along the way."
 site_author = "BigBigBob"
 repo_url = "https://github.com/BigBigBob/bob-tech-notes"
 repo_name = "BigBigBob/bob-tech-notes"

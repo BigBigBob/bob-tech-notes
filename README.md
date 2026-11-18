@@ -1,8 +1,8 @@
-# BigBigBob 的个人博客
+# 时安手记
 
-这里记录我的学习、实践和思考。技术博客是目前的栏目，后续会陆续加入其他栏目。
+记录技术实践与日常生活，写下做过的事、学到的东西，以及一路上的思考。技术博客是目前的栏目，后续会陆续加入其他栏目。
 
-[简体中文](https://bigbigbob.github.io/bob-tech-notes/) · [English](https://bigbigbob.github.io/bob-tech-notes/en/) · [繁體中文](https://bigbigbob.github.io/bob-tech-notes/zh-hant/)
+[简体中文](https://shianpages.com/) · [English](https://shianpages.com/en/) · [繁體中文](https://shianpages.com/zh-hant/)
 
 
 
@@ -112,7 +112,7 @@ uv run --locked python -m http.server 8000 --bind 127.0.0.1 --directory .build/p
 你可以复制、转载、修改和再发布这些内容，包括用于商业目的，但需要保留适当署名、提供许可证链接，并说明是否对原内容进行了修改。建议使用以下署名格式：
 
 ```text
-来源：BigBigBob 的个人博客
+来源：时安手记
 作者：BigBigBob
 原文：https://github.com/BigBigBob/bob-tech-notes
 许可证：CC BY 4.0

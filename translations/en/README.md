@@ -8,9 +8,9 @@ translation_id: home
 
 <div class="blog-hero__intro" markdown="1">
 
-# BigBigBob’s Personal Blog
+# Shi’an Pages
 
-I write about what I learn, build, and think about.
+Notes on technology and everyday life, from things I’ve built and lessons I’ve learned to reflections along the way.
 
 [Tech Blog](tech/README.md){ .blog-button }
 

@@ -8,9 +8,9 @@ translation_id: home
 
 <div class="blog-hero__intro" markdown="1">
 
-# BigBigBob <span class="blog-hero__title-text">的个人博客</span>
+# <span class="blog-hero__title-text">时安手记</span>
 
-这里记录我的学习、实践和思考。
+记录技术实践与日常生活，写下做过的事、学到的东西，以及一路上的思考。
 
 [技术博客](tech/README.md){ .blog-button }
 
